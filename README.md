@@ -1,4 +1,4 @@
-# SummerCamp 🏄 Week Two Challenge 
+# Summer Camp ⛺ ☀️ Week Two Challenge 
 
 Ops Manager installation files.
 Step 1: Setting Up the VMs
