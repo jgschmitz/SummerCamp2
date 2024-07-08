@@ -131,8 +131,9 @@ sudo nano /etc/mongodb-mms/monitoring-agent.config
 sudo nano /etc/mongodb-mms/backup-agent.config
 ```
 Set the mmsGroupId, mmsApiKey, and mmsBaseUrl in these configuration files.
-```
+
 Start the Agents:
+
 ```
 sudo service mongodb-mms-monitoring-agent start
 sudo service mongodb-mms-backup-agent start
