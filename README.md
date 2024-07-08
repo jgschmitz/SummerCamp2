@@ -47,8 +47,7 @@ sudo service mongodb-mms start
 
 Rinse and repeat the above steps for VM2.
 
-VM3: Let's install the load balancer 
-Install Nginx (as an example load balancer):
+VM3: Let's install the load balancer (NGINX)
 
 ```
 sudo apt-get update
@@ -62,8 +61,8 @@ sudo nano /etc/nginx/sites-available/default
 Nginx configuration: um I think?
 ```
 upstream opsmanager {
-    server <vm1_ip>:8080;
-    server <vm2_ip>:8080;
+    server 192.168.1.101:8080;
+    server 192.168.1.102:8080;
 }
 
 server {
