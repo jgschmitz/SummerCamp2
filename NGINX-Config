@@ -1,0 +1,19 @@
+# /etc/nginx/sites-available/default
+
+upstream opsmanager {
+    # Define the backend servers
+    server 192.168.1.101:8080;  # IP address of VM1
+    server 192.168.1.102:8080;  # IP address of VM2
+}
+
+server {
+    listen 8080;  # The port nginx will listen on
+
+    location / {
+        proxy_pass http://opsmanager;  # Pass requests to the upstream group "opsmanager"
+        proxy_set_header Host $host;  # Preserve the original Host header
+        proxy_set_header X-Real-IP $remote_addr;  # Preserve the original client IP
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;  # Forward client's original IP in X-Forwarded-For header
+        proxy_set_header X-Forwarded-Proto $scheme;  # Preserve the original request scheme (http or https)
+    }
+}
