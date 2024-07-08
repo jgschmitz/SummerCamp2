@@ -1,6 +1,4 @@
-Prerequisites
-Three VMs set up and running (can be on-premises or cloud-based).
-I'll be using NGINX
+SummerCamp Week Two Challenge 
 
 Ops Manager installation files.
 Step 1: Setting Up the VMs
