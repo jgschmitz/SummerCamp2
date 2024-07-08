@@ -30,7 +30,7 @@ wget https://downloads.mongodb.com/on-prem-mms/deb/mongodb-mms_VERSION.deb
 sudo dpkg -i mongodb-mms_VERSION.deb
 ```
 
-Configure Ops Manager:
+# Configure Ops Manager:
 Edit the configuration file (/opt/mongodb/mms/conf/conf-mms.properties) to set up your Ops Manager instance:
 ```
 sudo nano /opt/mongodb/mms/conf/conf-mms.properties
@@ -42,7 +42,7 @@ mms.centralUrl=http://192.168.1.101:8080
 #mms.replyToEmailAddr=noreply@example.com
 ```
 
-Start Ops Manager:
+# Start Ops Manager:
 ```
 sudo service mongodb-mms start
 ```
@@ -55,7 +55,7 @@ VM3: Let's install the load balancer (NGINX)
 sudo apt-get update
 sudo apt-get install -y nginx
 ```
-Configure Nginx:
+# Configure Nginx:
 
 Edit the Nginx configuration file to load balance traffic between the two Ops Manager instances:
 
