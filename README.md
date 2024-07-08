@@ -7,7 +7,7 @@ Ensure your three VMs are up and running. For the purposes of this walkthrough, 
 ```
 VM1: Ops Manager Instance 1
 VM2: Ops Manager Instance 2
-VM3: Load Balancer
+VM3: Load Balancer 🏋️
 ```
 
 Step 2: Installing and Configuring Ops Manager
@@ -133,7 +133,7 @@ sudo nano /etc/mongodb-mms/backup-agent.config
 ```
 Set the mmsGroupId, mmsApiKey, and mmsBaseUrl in these configuration files.
 
-Start the Agents:
+Start the Agents cross fingers!
 
 ```
 sudo service mongodb-mms-monitoring-agent start
