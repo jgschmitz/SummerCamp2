@@ -32,15 +32,18 @@ Configure Ops Manager:
 Edit the configuration file (/opt/mongodb/mms/conf/conf-mms.properties) to set up your Ops Manager instance:
 ```
 sudo nano /opt/mongodb/mms/conf/conf-mms.properties
+```
 Key configurations to set:
-
+```
 mms.centralUrl=http://192.168.1.101:8080
-mms.fromEmailAddr=opsmanager@example.com
-mms.replyToEmailAddr=noreply@example.com
-
+#mms.fromEmailAddr=opsmanager@example.com
+#mms.replyToEmailAddr=noreply@example.com
+```
 Start Ops Manager:
-
+```
 sudo service mongodb-mms start
+```
+
 Rinse and repeat the above steps for VM2.
 
 VM3: Let's install the load balancer 
@@ -48,15 +51,14 @@ Install Nginx (as an example load balancer):
 ```
 sudo apt-get update
 sudo apt-get install -y nginx
+```
 Configure Nginx:
 
 Edit the Nginx configuration file to load balance traffic between the two Ops Manager instances:
 
 sudo nano /etc/nginx/sites-available/default
-Example Nginx configuration:
-
-nginx
-Copy code
+Nginx configuration: um I think?
+```
 upstream opsmanager {
     server <vm1_ip>:8080;
     server <vm2_ip>:8080;
@@ -73,34 +75,32 @@ server {
         proxy_set_header X-Forwarded-Proto $scheme;
     }
 }
+```
 Restart Nginx:
-
-sh
-Copy code
+```
 sudo service nginx restart
+```
 Step 3: Deploying Application Database on VMs
 Install MongoDB on each VM:
 
-sh
-Copy code
 # Add MongoDB repository
+```
 wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
 echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+```
 
 # Install MongoDB
+```
 sudo apt-get update
 sudo apt-get install -y mongodb-org
+```
 Start MongoDB:
 
-sh
-Copy code
 sudo service mongod start
 Configure MongoDB Replica Set:
 
 Connect to MongoDB and initiate the replica set:
-
-sh
-Copy code
+```
 mongo --host <vm1_ip>
 
 rs.initiate({
@@ -111,6 +111,7 @@ rs.initiate({
     { _id: 2, host: "<vm3_ip>:27017" }
   ]
 })
+```
 Step 4: Install Ops Manager Agent and Ensure Connectivity
 Install the Ops Manager Agent on Each VM:
 
