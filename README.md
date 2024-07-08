@@ -39,6 +39,7 @@ mms.centralUrl=http://192.168.1.101:8080
 #mms.fromEmailAddr=opsmanager@example.com
 #mms.replyToEmailAddr=noreply@example.com
 ```
+
 Start Ops Manager:
 ```
 sudo service mongodb-mms start
@@ -48,6 +49,7 @@ Rinse and repeat the above steps for VM2.
 
 VM3: Let's install the load balancer 
 Install Nginx (as an example load balancer):
+
 ```
 sudo apt-get update
 sudo apt-get install -y nginx
@@ -97,10 +99,12 @@ sudo apt-get install -y mongodb-org
 Start MongoDB:
 ```
 sudo service mongod start
+```
 Configure MongoDB Replica Set:
 Connect to MongoDB and initiate the replica set:
+
 ```
-mongo --host <vm1_ip>
+mongo --host 192.168.1.101:27017
 
 rs.initiate({
   _id: "rs0",
