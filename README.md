@@ -20,14 +20,9 @@ sudo apt-get update
 sudo apt-get install -y openjdk-8-jre-headless wget
 ```
 
-# Download Ops Manager
-```
-wget https://downloads.mongodb.com/on-prem-mms/deb/mongodb-mms_VERSION.deb
-```
-
 # Install Ops Manager
 ```
-sudo dpkg -i mongodb-mms_VERSION.deb
+sudo dpkg -i mongodb-mms_107.0.2.8531.deb
 ```
 
 # Configure Ops Manager:
