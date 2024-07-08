@@ -4,6 +4,7 @@ Ops Manager installation files.
 Step 1: Setting Up the VMs
 
 Ensure your three VMs are up and running. For the purposes of this walkthrough, so like last week we can call them:
+
 VM1: Ops Manager Instance 1
 VM2: Ops Manager Instance 2
 VM3: Load Balancer
