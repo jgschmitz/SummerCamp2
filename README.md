@@ -95,10 +95,9 @@ sudo apt-get update
 sudo apt-get install -y mongodb-org
 ```
 Start MongoDB:
-
+```
 sudo service mongod start
 Configure MongoDB Replica Set:
-
 Connect to MongoDB and initiate the replica set:
 ```
 mongo --host <vm1_ip>
@@ -106,35 +105,31 @@ mongo --host <vm1_ip>
 rs.initiate({
   _id: "rs0",
   members: [
-    { _id: 0, host: "<vm1_ip>:27017" },
-    { _id: 1, host: "<vm2_ip>:27017" },
-    { _id: 2, host: "<vm3_ip>:27017" }
+    { _id: 0, host: "192.168.1.101:27017" },
+    { _id: 1, host: "192.168.1.102:27017" },
+    { _id: 2, host: "192.168.1.103:27017" }
   ]
 })
 ```
 Step 4: Install Ops Manager Agent and Ensure Connectivity
 Install the Ops Manager Agent on Each VM:
-
-sh
-Copy code
+```
 wget https://downloads.mongodb.com/on-prem-mms/deb/mongodb-mms-monitoring-agent_VERSION_amd64.deb
 sudo dpkg -i mongodb-mms-monitoring-agent_VERSION_amd64.deb
-
+```
+```
 wget https://downloads.mongodb.com/on-prem-mms/deb/mongodb-mms-backup-agent_VERSION_amd64.deb
 sudo dpkg -i mongodb-mms-backup-agent_VERSION_amd64.deb
+```
 Configure the Monitoring and Backup Agents:
-
-Edit the agent configuration files to point to your Ops Manager:
-
-sh
-Copy code
+```
 sudo nano /etc/mongodb-mms/monitoring-agent.config
 sudo nano /etc/mongodb-mms/backup-agent.config
+```
 Set the mmsGroupId, mmsApiKey, and mmsBaseUrl in these configuration files.
-
+```
 Start the Agents:
-
-sh
-Copy code
+```
 sudo service mongodb-mms-monitoring-agent start
 sudo service mongodb-mms-backup-agent start
+```
